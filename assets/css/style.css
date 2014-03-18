@@ -70,7 +70,11 @@ h2, h4
 
 .lessionDiv
 {
-	height:100%;
+	height:50%;
+}
+.quizDiv
+{
+	height:50%;
 }
 
 .ui-tabs .ui-tabs-panel

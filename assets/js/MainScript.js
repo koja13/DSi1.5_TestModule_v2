@@ -174,6 +174,29 @@
 		});
 		
 		
+		function getQuestions()
+		{
+			$.ajax({
+				// post zahtev je u pitanju
+				  type: "POST",
+				  // link ka kome se upucuje zahtev, getObjects predstavlja metod na serveru koji ce da odgovori na zahtev
+				  url: config.site_url  + "/UserController/quiz",
+
+				  data: {	
+
+				  		}
+				}).done(function( response ) {
+
+
+					// u donji div se upisu sve veze koje vrati server
+					$("#quizDiv").html(response);
+					// obrada odgovora na zahtev, postavljanje pozadinske boje svim objektima koje dobijemo kao odgovor
+					
+				});
+		}
+		
+		
+		
 		// ========================= sendUserActions(subject, object) ========================
 		//
 		// Ajax funkcija koja serveru salje informaciju o prevlacenju reci na rec
