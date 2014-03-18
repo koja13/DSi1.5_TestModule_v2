@@ -46,13 +46,13 @@
         		<?php
 
 					// ucitavanje pitanja na stranu iz promenljive ($questions) dobijene od servera
-					echo "<script> var numberOfQuestions = " . count($questions) . "; </script>";
+				/*	echo "<script> var numberOfQuestions = " . count($questions) . "; </script>";
 				
 					for ($i = 1; $i <=3; $i++)
 					{
 						echo $questions[$i];
 					}
-				
+				*/
 				?>
         		
         		</div>
@@ -63,7 +63,7 @@
         		<div id="quizDiv2" class="quizDiv">
         		
         		<?php
-
+/*
 					// ucitavanje pitanja na stranu iz promenljive ($questions) dobijene od servera
 					echo "<script> var numberOfQuestions = " . count($questions) . "; </script>";
 				
@@ -71,7 +71,7 @@
 					{
 						echo $questions[$i];
 					}
-				
+				*/
 				?>
         		</div>
         	</div>
@@ -81,7 +81,7 @@
         		<div id="quizDiv3" class="quizDiv">
         		    
         		<?php
-
+/*
 					// ucitavanje pitanja na stranu iz promenljive ($questions) dobijene od servera
 					echo "<script> var numberOfQuestions = " . count($questions) . "; </script>";
 				
@@ -89,7 +89,7 @@
 					{
 						echo $questions[$i];
 					}
-				
+				*/
 				?>
         		</div>
         	</div>       

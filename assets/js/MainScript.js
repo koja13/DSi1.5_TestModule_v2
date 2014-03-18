@@ -189,7 +189,7 @@
 
 
 					// u donji div se upisu sve veze koje vrati server
-					$("#quizDiv").html(response);
+					$("#quizDiv1").html(response);
 					// obrada odgovora na zahtev, postavljanje pozadinske boje svim objektima koje dobijemo kao odgovor
 					
 				});

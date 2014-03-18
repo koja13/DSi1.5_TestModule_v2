@@ -265,11 +265,11 @@ class UserController extends CI_Controller{
 	{
 		$data=$this->UserModel->getQuestions();
 		
-		echo $data["questions"];
-		/*$data['title']= 'Quiz | DSi1.5';
-		$this->load->view('HeaderQuizView',$data);
+		//echo $data["questions"];
+		//$data['title']= 'Quiz | DSi1.5';
+		//$this->load->view('HeaderQuizView',$data);
 		$this->load->view('QuizView.php', $data);
-		$this->load->view('FooterView',$data);*/
+		//$this->load->view('FooterView',$data);
 	}
 	
 	// ================================ getQuizResults() ================================

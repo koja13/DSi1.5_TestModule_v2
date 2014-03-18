@@ -51,8 +51,7 @@ h2, h4
 #mainDiv
 {
 	height:90%;
-	overflow-y: auto;
-	overflow-x: hidden;
+
 	border: 1px solid #ccc;
 }
 
@@ -71,10 +70,14 @@ h2, h4
 .lessionDiv
 {
 	height:50%;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 .quizDiv
 {
 	height:50%;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .ui-tabs .ui-tabs-panel
