@@ -56,6 +56,7 @@ img
 	width: 660px;
 	height: 15px;
 	margin: auto;
+	margin-top:15px;
 	margin-bottom:15px;
 	background: white;
 	border-radius: 7px;
@@ -113,7 +114,7 @@ nav a.focus {
 .qPar
 {
 	font-weight:bold;
-	font-size: 15px;
+	font-size: 13px;
 	color:white;
 	background: #4889C2;
 	border-radius: 5px;
@@ -132,14 +133,14 @@ nav a.focus {
 	padding-left:5px;
 	border-radius: 5px;
 	font-weight:bold;
-	font-size: 13px;
+	font-size: 11px;
 	color:#555555;
 
 }
 .answer:hover
 {
 	color:#C64F00;
-	font-size: 14px;
+	font-size: 12px;
 	background: #E1E1E1;
 }
 
@@ -148,7 +149,7 @@ nav a.focus {
 	padding-left:5px;
 	border-radius: 5px;
 	font-weight:bold;
-	font-size: 13px;
+	font-size: 11px;
 	color:#555555;
 
 }
@@ -159,7 +160,7 @@ nav a.focus {
 	border-radius: 5px;
 	font-weight:bold;
 	color:#C64F00;
-	font-size: 14px;
+	font-size: 12px;
 	background: #E1E1E1;
 
 }
@@ -174,7 +175,7 @@ nav a.focus {
 {
 	
 	width: 600px;
-	height: 120px;
+	height: 100px;
 	margin: auto;
 	margin-bottom:20px;
 	background: white;
@@ -182,7 +183,6 @@ nav a.focus {
 	box-shadow: 0 0 10px rgba(0,0,0, .4); 
 	/*text-align: center;*/
 	padding:15px 30px;
-	
 	
 	/*height: 150px;
 	width:50%;

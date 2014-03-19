@@ -1,19 +1,19 @@
-<script src="<?php echo base_url('assets/countdownTimer/countdown/jquery.countdown.Quiz.js')?>"></script>
-<script src="<?php echo base_url('assets/countdownTimer/js/QuizCountdownScript.js')?>"></script>
+<script src="<?php //echo base_url('assets/countdownTimer/countdown/jquery.countdown.Quiz.js')?>"></script>
+<script src="<?php //echo base_url('assets/countdownTimer/js/QuizCountdownScript.js')?>"></script>
 
 <script src="<?php echo base_url('assets/js/QuizScript.js')?>"></script>
 
 <!------------------------------- navigationDiv --------------------------------->
-<div id='navigationDiv'>
+<!--<div id='navigationDiv'> -->
 
 <!-------------------------- countdownDivQuiz, tajmer --------------------------->
-	<div id="countdownDivQuiz">
+<!--	<div id="countdownDivQuiz">
 		<div id="countdown"> </div>	
-	</div>
+	</div> 
 	
-	<nav> <?php echo anchor('UserController/logout', 'Logout', array('class'=>'focus') ); ?> </nav>
+	<nav> <?php //echo anchor('UserController/logout', 'Logout', array('class'=>'focus') ); ?> </nav>
 	
-</div>
+</div>-->
 
 <script>
 sendUserActionsLessions(null, "start_quiz", null);
@@ -33,7 +33,7 @@ sendUserActionsLessions(null, "start_quiz", null);
 	// ucitavanje pitanja na stranu iz promenljive ($questions) dobijene od servera
 	echo "<script> var numberOfQuestions = " . count($questions) . "; </script>";
 
-	for ($i = 1; $i <=30; $i++)
+	for ($i = 1; $i <=9; $i++)
 	{
 		echo $questions[$i];
 	}

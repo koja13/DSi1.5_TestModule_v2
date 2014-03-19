@@ -7,7 +7,7 @@
 <span id="lessionNumberSpan1">
 	<span id="lessionNumberSpan2">
 		
-	</span>  of 10
+	</span>  of 5
 </span>
 <nav> <?php /*echo anchor('UserController/startQuiz', 'Start test', array('id'=>'startTest') ) . " | "; */if($this->session->userdata('account_type') =="f") {echo anchor('/UserController/registerFBUser', 'Register') . " | "; } echo anchor('UserController/logout', 'Logout', array('class'=>'focus') ); ?> </nav>
 </div>
