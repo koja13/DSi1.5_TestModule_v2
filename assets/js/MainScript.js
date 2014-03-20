@@ -174,7 +174,7 @@
 		});
 		
 		
-		function getQuestions()
+		/*function getQuestions()
 		{
 			$.ajax({
 				// post zahtev je u pitanju
@@ -194,7 +194,7 @@
 					
 				});
 		}
-		
+		*/
 		
 		
 		// ========================= sendUserActions(subject, object) ========================

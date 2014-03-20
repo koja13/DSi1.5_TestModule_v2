@@ -19,12 +19,20 @@
 		// slanje informacije o akciji poktretanja sistema za ucenje
 		sendUserActionsLessions(currentLessionNumber, "start_dsi", null);
 
-		getQuestions();
 	</script>
-
+	
+    <?php
+        		
+        $qNo=1;
+        $qNoPerPage = 3;
+        $qPageNo = 1;
+        			
+    ?>
+    
 	 	<!------------------------- tabs, div koje ce da sadrzi tabove (divove)  ------------------------->
         <div id="tabs">
-			
+
+        		
 	    	<ul>
 	        		<li><a href="#fragment-1">1</a></li><li><a href="#fragment-2">2</a></li>
 	        		<li><a href="#fragment-3">3</a></li><li><a href="#fragment-4">4</a></li>
@@ -33,7 +41,9 @@
 	    	</ul>
 	
         	<div id="fragment-1" class="ui-tabs-panel">
-	        	<div id="lessionDiv1" class="lessionDiv"></div>
+	        	<div id="lessionDiv1" class="lessionDiv">
+	        	
+	        	</div>
         	</div>
         	
         	<div id="fragment-2" class="ui-tabs-panel ui-tabs-hide">
@@ -43,16 +53,17 @@
         	<div id="fragment-3" class="ui-tabs-panel ui-tabs-hide">
         		<div id="lessionDiv3" class="lessionDiv"></div>
         		<div id="quizDiv1" class="quizDiv">
-        		<?php
-
-					// ucitavanje pitanja na stranu iz promenljive ($questions) dobijene od servera
-				/*	echo "<script> var numberOfQuestions = " . count($questions) . "; </script>";
-				
-					for ($i = 1; $i <=3; $i++)
+        		
+				<?php
+        			
+	        		for ($i = 1; $i <=$qNoPerPage * $qPageNo; $i++)
 					{
+						echo "<br />";
 						echo $questions[$i];
-					}
-				*/
+						$qNo++;
+					} 
+					
+					$qPageNo++;
 				?>
         		
         		</div>
@@ -63,15 +74,16 @@
         		<div id="quizDiv2" class="quizDiv">
         		
         		<?php
-/*
-					// ucitavanje pitanja na stranu iz promenljive ($questions) dobijene od servera
-					echo "<script> var numberOfQuestions = " . count($questions) . "; </script>";
-				
-					for ($i = 4; $i <=6; $i++)
+					
+	        		for ($i = $qNo; $i <=$qNoPerPage * $qPageNo; $i++)
 					{
+						echo "<br />";
 						echo $questions[$i];
+						$qNo++;
 					}
-				*/
+					
+					$qPageNo++;
+					
 				?>
         		</div>
         	</div>
@@ -79,18 +91,20 @@
         	<div id="fragment-5" class="ui-tabs-panel ui-tabs-hide">
         		<div id="lessionDiv5" class="lessionDiv"></div>
         		<div id="quizDiv3" class="quizDiv">
-        		    
+        		  
+        		  
         		<?php
-/*
-					// ucitavanje pitanja na stranu iz promenljive ($questions) dobijene od servera
-					echo "<script> var numberOfQuestions = " . count($questions) . "; </script>";
-				
-					for ($i = 7; $i <=9; $i++)
+
+	        		for ($i = $qNo; $i <=$qNoPerPage * $qPageNo; $i++)
 					{
+						echo "<br />";
 						echo $questions[$i];
-					}
-				*/
+						$qNo++;
+					} 
+					
 				?>
+        		    
+
         		</div>
         	</div>       
         	

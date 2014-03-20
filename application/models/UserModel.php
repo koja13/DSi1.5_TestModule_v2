@@ -191,24 +191,24 @@ class UserModel extends CI_Model {
 				$answer2 = $rows->answer2;
 				$answer3 = $rows->answer3;
 				
-				if($qNo<4)
-				{
+			//	if($qNo<4)
+				//{
 					$question = " <div id='q" .$qNo. "' class='question'>" .
 					"<p id='question" .$qNo. "' class ='qPar'>".$qNo. ". ".$ques. "</p> <br />" .
 					"<p class='answer'><input class='radio' type='radio' name='q" .$qNo. "' id='q" .$qNo. "a1' value='" .$answer1. "'> <label class='answerLabel' for='q" .$qNo. "a1'>" . $answer1 . "</label></p>" .
 					"<p class='answer'><input class='radio' type='radio' name='q" .$qNo. "' id='q" .$qNo. "a2' value='" .$answer2. "'> <label class='answerLabel'  for='q" .$qNo. "a2'>" . $answer2 . "</label></p>" .
 					"<p class='answer'><input class='radio' type='radio' name='q" .$qNo. "' id='q" .$qNo. "a3' value='" .$answer3. "'> <label class='answerLabel'  for='q" .$qNo. "a3'>" . $answer3 . "</label></p>" .
 					"</div>";
-				}
-				else
-				{
-					$question = " <div id='q" .$qNo. "' style='display:none;' class='question'>" .
+				//}
+				//else
+				//{
+				/*	$question = " <div id='q" .$qNo. "' style='display:none;' class='question'>" .
 							"<p id='question" .$qNo. "' class ='qPar'>" .$qNo. ". ".$ques. "</p> <br />" .
 							"<p class='answer'><input class='radio' type='radio' name='q" .$qNo. "' id='q" .$qNo. "a1' value='" .$answer1. "'> <label class='answerLabel'  for='q" .$qNo. "a1'>" . $answer1 . "</label></p>" .
 							"<p class='answer'><input class='radio' type='radio' name='q" .$qNo. "' id='q" .$qNo. "a2' value='" .$answer2. "'> <label  class='answerLabel' for='q" .$qNo. "a2'>" . $answer2 . "</label></p>" .
 							"<p class='answer'><input class='radio' type='radio' name='q" .$qNo. "' id='q" .$qNo. "a3' value='" .$answer3. "'> <label  class='answerLabel' for='q" .$qNo. "a3'>" . $answer3 . "</label></p>" .
 							"</div>";
-				}
+				}*/
 				$questions[$qNo] = $question;
 				
 			}

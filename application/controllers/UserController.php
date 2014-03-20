@@ -201,6 +201,9 @@ class UserController extends CI_Controller{
 	//
 	public function start()
 	{
+
+		
+		$data=$this->UserModel->getQuestions();
 		$data['title']= 'DSi1.5';
 		$this->load->view('HeaderView',$data);
 		$this->load->view('MainView.php', $data);
@@ -268,7 +271,7 @@ class UserController extends CI_Controller{
 		//echo $data["questions"];
 		//$data['title']= 'Quiz | DSi1.5';
 		//$this->load->view('HeaderQuizView',$data);
-		$this->load->view('QuizView.php', $data);
+		//$this->load->view('QuizView.php', $data);
 		//$this->load->view('FooterView',$data);
 	}
 	
