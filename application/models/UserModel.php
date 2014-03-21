@@ -194,7 +194,7 @@ class UserModel extends CI_Model {
 			//	if($qNo<4)
 				//{
 					$question = " <div id='q" .$qNo. "' class='question'>" .
-					"<p id='question" .$qNo. "' class ='qPar'>".$qNo. ". ".$ques. "</p> <br />" .
+					"<p id='question" .$qNo. "' class ='qPar'>".$qNo. ". ".$ques. "</p> " .
 					"<p class='answer'><input class='radio' type='radio' name='q" .$qNo. "' id='q" .$qNo. "a1' value='" .$answer1. "'> <label class='answerLabel' for='q" .$qNo. "a1'>" . $answer1 . "</label></p>" .
 					"<p class='answer'><input class='radio' type='radio' name='q" .$qNo. "' id='q" .$qNo. "a2' value='" .$answer2. "'> <label class='answerLabel'  for='q" .$qNo. "a2'>" . $answer2 . "</label></p>" .
 					"<p class='answer'><input class='radio' type='radio' name='q" .$qNo. "' id='q" .$qNo. "a3' value='" .$answer3. "'> <label class='answerLabel'  for='q" .$qNo. "a3'>" . $answer3 . "</label></p>" .
