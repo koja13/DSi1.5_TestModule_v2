@@ -9,11 +9,20 @@
 		
 	</span>  of 5
 </span>
+
+<!-------------------------- progressDiv --------------------------->
+	<div id="progressOutDiv">
+		<div id="progressInDiv">
+		</div>
+	</div>
+
 <nav> <?php /*echo anchor('UserController/startQuiz', 'Start test', array('id'=>'startTest') ) . " | "; */if($this->session->userdata('account_type') =="f") {echo anchor('/UserController/registerFBUser', 'Register') . " | "; } echo anchor('UserController/logout', 'Logout', array('class'=>'focus') ); ?> </nav>
 </div>
 
 <!------------------------- mainDiv, centralni div u koji se ucitava tekst ------------------------->
 <div id='mainDiv'>
+
+	
 
 	<script>
 		// slanje informacije o akciji poktretanja sistema za ucenje

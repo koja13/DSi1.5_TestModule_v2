@@ -56,8 +56,8 @@ img
 	width: 660px;
 	height: 15px;
 	margin: auto;
-	margin-top:15px;
-	margin-bottom:15px;
+	margin-top:2px;
+	margin-bottom:2px;
 	background: white;
 	border-radius: 7px;
 	box-shadow: 0 0 7px rgba(0,0,0, .4); 
@@ -85,7 +85,7 @@ nav {
 	top: 10px;
 	right: 10px;	*/
 }
-
+/*
 nav a {
 	color: #4889C2;
 	font-weight: bold;
@@ -106,10 +106,10 @@ nav a.focus {
 {
 	height: 2%;
 	/*margin: 10px;*/
-	padding: 10px;
+/*	padding: 10px;
 	text-align: right;
 }
-
+*/
 
 .qPar
 {
