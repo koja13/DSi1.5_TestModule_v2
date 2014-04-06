@@ -61,6 +61,8 @@ img
 	background: white;
 	border-radius: 7px;
 	box-shadow: 0 0 7px rgba(0,0,0, .4); 
+	
+	float: center;
 	/*text-align: center;*/
 	/*padding:15px 30px;*/
 

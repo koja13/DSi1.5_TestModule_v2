@@ -10,11 +10,13 @@
 	</span>  of 5
 </span>
 
+<div id='navProgressDiv'>
 <!-------------------------- progressDiv --------------------------->
 	<div id="progressOutDiv">
 		<div id="progressInDiv">
 		</div>
 	</div>
+</div>
 
 <nav> <?php /*echo anchor('UserController/startQuiz', 'Start test', array('id'=>'startTest') ) . " | "; */if($this->session->userdata('account_type') =="f") {echo anchor('/UserController/registerFBUser', 'Register') . " | "; } echo anchor('UserController/logout', 'Logout', array('class'=>'focus') ); ?> </nav>
 </div>
@@ -25,6 +27,7 @@
 	
 
 	<script>
+	
 		// slanje informacije o akciji poktretanja sistema za ucenje
 		sendUserActionsLessions(currentLessionNumber, "start_dsi", null);
 
@@ -113,7 +116,9 @@
 					
 				?>
         		    
-
+	<span id="finishButtonSpan">
+		<input  id="finishButton" type="button" onclick="finishQuiz();" value="FINISH!"/>
+	</span>
         		</div>
         	</div>       
         	

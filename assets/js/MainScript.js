@@ -32,6 +32,22 @@
 		
 		// bool promenljiva, da li je isteklo vreme za ucenje, na false u startu
 		var timeIsUp = false;
+		
+		// broj strana sa pitanjima
+		var numberOfPages = 5;
+		
+
+		// procenti za progress div
+		var progressPercents = 100/numberOfPages;
+		
+		// niz u kome ce se cuvati odgovori koje korisnik odabere
+		var userAnswers = new Array();
+		
+		var qNumber = 9;
+
+		// bool promenljive
+		var resultsSent = false;
+		userFinishedQuiz = false;
 
 		// FUNKCIJE
 		
@@ -53,6 +69,16 @@
 			$(document).on('click', '.close', function(){
 			        $(this).parent().hide(400);
 			    });
+			
+			
+			
+			
+			//broj pitanja na strani
+			//var qCount = 3;
+			
+
+
+			$("#progressInDiv").width(progressPercents + "%");
 
 		});
 		
@@ -142,6 +168,21 @@
 				changeLessionNumberNext();
 				
 				//alert(relNext + " to je +1 i " + relPrev + " je -1");
+				
+				
+				// povecavanje procenata prilikom prelaza na narednu grupu pitanja
+				progressPercents += 100/numberOfPages;
+
+				// animiranje progres diva na osnovu procenata u kom delu kviza se korisnik trenutno nalazi
+				$("#progressInDiv").animate({
+				    
+				    width:progressPercents + "%"
+				  }, "fast");
+				
+				if(currentLessionNumber==numberOfPages)
+				{
+					$("#progressInDiv").css({'border-top-right-radius': '7px', 'border-bottom-right-radius': '7px'});
+				}
 				return false;
 			});
 	       
@@ -168,33 +209,111 @@
 				changeLessionNumberPrev();
 
 				// alert(relNext + " to je +1 i " + relPrev + " je -1");
+				
+				// smanjivanje procenata prilikom vracanja na prethodnu grupu pitanja
+				progressPercents -= 100/numberOfPages;
+
+				// animiranje progres diva na osnovu procenata u kom delu kviza se korisnik trenutno nalazi
+				$("#progressInDiv").animate({
+					width:progressPercents + "%"
+			    }, "fast");
+				
+				if(currentLessionNumber<numberOfPages)
+				{
+					$("#progressInDiv").css({'border-top-right-radius': '0px', 'border-bottom-right-radius': '0px'});
+				}
 				return false;
 			});
 
 		});
 		
 		
-		/*function getQuestions()
+		// =============================== finishQuiz() ==============================
+		//
+		// funkcija koja cuva korisnikove odgovore na pitanja u niz, a zatim ih prosledjuje serveru
+		// poziva je event handler za klik na dugme == finishButton, QuizView ==
+		// 
+		function finishQuiz()
 		{
+			// ukoliko rezultati nisu vec poslati (moguc scenario jeste automatsko prosledjivanje rezultata nakon isteka vremena za kviz)
+			if(resultsSent!=true)
+			{
+				for(var i=1;i<=qNumber;i++)
+				{
+					if($("input[name=q"+i+"]:checked").val()==null)
+					{
+						// ukoliko nema odgovora na to pitanje, tj ukoliko nista nije cekirano onda se u niz upisuje null
+						userAnswers[i] = null;
+					}
+					else
+					{
+						// ukoliko ima odgovora na to pitanje
+						var answerId =  $("input[name=q"+i+"]:checked").attr('id');
+						var userAnswer = answerId.substr(-1,1);
+						userAnswers[i] = userAnswer;
+					}
+				}
+			
+				// belezenje akcije u bazi podataka
+				sendUserActionsLessions(null, "end_quiz", null);
+				
+				// slanje rezultata serveru
+				sendQuizResults();
+				
+				// setovanje bool promenljivih
+				
+				// korisnik je zavrsio kviz
+				userFinishedQuiz = true;
+				
+				// rezultati su poslati
+				resultsSent = true;
+
+			}
+		}
+		
+
+		// =============================== sendQuizResults() ==============================
+		//
+		// Ajax fja koja salje serveru odogovore na pitanja
+		// poziva je fja finishQuiz()
+		// 	
+		function sendQuizResults()
+		{	  
 			$.ajax({
-				// post zahtev je u pitanju
+				  // u pitanju je post zahtev
 				  type: "POST",
-				  // link ka kome se upucuje zahtev, getObjects predstavlja metod na serveru koji ce da odgovori na zahtev
-				  url: config.site_url  + "/UserController/quiz",
-
+				  // link ka kome se upucuje zahtev, getQuizResults predstavlja metod na serveru koji ce da odgovori na zahtev
+				  url: config.site_url + "/UserController/saveQuizResults",
 				  data: {	
-
+				  // salju se odgovori na pitanja i vreme kada je zavrsen kviz
+					  		userAnswers: userAnswers,
+							currentDateTime: getCurrentTime()
 				  		}
 				}).done(function( response ) {
 
+					if(response == "Success")
+					{
+						// brise se sadrzaj mainDiv-a
+						$("#mainDiv").empty();
+						$("#mainDiv").css({'border': '0px', 'text-align': 'center'});
+						//$("#mainDiv").css({'vertical-align': '50%'});
 
-					// u donji div se upisu sve veze koje vrati server
-					$("#quizDiv1").html(response);
-					// obrada odgovora na zahtev, postavljanje pozadinske boje svim objektima koje dobijemo kao odgovor
-					
+						// brise se tajmer, tj div u kome se nalazi
+						$("#countDiv").remove();
+						
+						$("#bottomDiv").remove();
+						$("#lessionNumberSpan1").remove();
+						$("#navProgressDiv").remove();
+						
+						// korisniku se ispisuje da su rezultati sacuvani
+						$("#mainDiv").html("Rezultati su sačuvani! Hvala što ste učestovali.");
+							
+
+
+							
+					}
 				});
 		}
-		*/
 		
 		
 		// ========================= sendUserActions(subject, object) ========================

@@ -275,13 +275,13 @@ class UserController extends CI_Controller{
 		//$this->load->view('FooterView',$data);
 	}
 	
-	// ================================ getQuizResults() ================================
+	// ================================ saveQuizResults() ================================
 	//
 	// odgovor na ajax poziv fje sendQuizResults() == QuizView ==
 	//
 	// ova fja upisuje u bazu rezultate kviza, poziva fju saveQuizResults($userAnswers) za cuvanje podataka o rezultatima == UserModel ==
 	// 
-	public function getQuizResults()
+	public function saveQuizResults()
 	{
 		$userAnswers = $_POST['userAnswers'];
 		$currentDateTime = $_POST['currentDateTime'];

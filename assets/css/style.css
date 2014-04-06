@@ -17,6 +17,12 @@ h2, h4
 	color: #a6a6a6;
 }
 
+#navProgressDiv
+{
+	width: 90%;
+	float: left;
+}
+
 #lessionNumberSpan1
 {
 	float: left;
@@ -117,6 +123,7 @@ nav {
 	position: fixed;
 	top: 10px;
 	right: 10px;	*/
+	float: right;
 }
 
 nav a {
