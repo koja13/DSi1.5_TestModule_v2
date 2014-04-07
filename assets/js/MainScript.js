@@ -142,6 +142,13 @@
 					prev = i;
 					$(this).append("<a href='#' class='prev-tab mover' rel='" + prev + "'>&#171; Prev Page</a>");
 				}
+				
+				if (i == totalSize) 
+				{
+					next = i + 2;
+					$(this).append("<a href='#' class='finish-tab moverFinish' rel='" + next + "'>Finish &#187;</a>");
+					//$(this).append("<span id='finishButtonSpan'> <input  id='finishButton' type='button' onclick='finishQuiz();' value='FINISH!'/></span>");
+				}
 
 			});
 		
@@ -222,6 +229,13 @@
 				{
 					$("#progressInDiv").css({'border-top-right-radius': '0px', 'border-bottom-right-radius': '0px'});
 				}
+				return false;
+			});
+			
+			$('.finish-tab').click(function() 
+			{ 
+				finishQuiz();	
+
 				return false;
 			});
 
@@ -306,11 +320,10 @@
 						$("#navProgressDiv").remove();
 						
 						// korisniku se ispisuje da su rezultati sacuvani
-						$("#mainDiv").html("Rezultati su sačuvani! Hvala što ste učestovali.");
+						//$("#mainDiv").html("Rezultati su saÄ�uvani! Hvala Å¡to ste uÄ�estovali.");
 							
+						$('#mainDiv').prepend('<img id="hvalaImg" style= "display: block, margin-left: auto,  margin-right: auto" src="' + config.base_url + 'hvala.jpg" />');
 
-
-							
 					}
 				});
 		}

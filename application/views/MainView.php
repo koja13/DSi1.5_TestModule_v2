@@ -115,10 +115,10 @@
 					} 
 					
 				?>
-        		    
+   <!--      		    
 	<span id="finishButtonSpan">
 		<input  id="finishButton" type="button" onclick="finishQuiz();" value="FINISH!"/>
-	</span>
+	</span>--> 
         		</div>
         	</div>       
         	
