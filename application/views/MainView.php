@@ -36,7 +36,7 @@
     <?php
         		
         $qNo=1;
-        $qNoPerPage = 3;
+        $qNoPerPage = 6;
         $qPageNo = 1;
         			
     ?>
@@ -68,12 +68,21 @@
         		
 				<?php
         			
-	        		for ($i = 1; $i <=$qNoPerPage * $qPageNo; $i++)
+					echo "<table>";
+				
+	        		for ($i = 1; $i <=$qNoPerPage/2 * $qPageNo; $i++)
 					{
-						echo "<br />";
-						echo $questions[$i];
+						echo "<tr><td>" . "" . $questions[$i] . "</td>";
 						$qNo++;
+						
+						echo "<td>" . "" . $questions[$i + $qNoPerPage/2] . "</td></tr>";
+						$qNo++;
+						
+						/*echo "<br />";
+						echo $questions[$i];*/
 					} 
+					
+					echo "</table>";
 					
 					$qPageNo++;
 				?>
@@ -86,13 +95,24 @@
         		<div id="quizDiv2" class="quizDiv">
         		
         		<?php
+        		
+        		echo "<table>";
 					
-	        		for ($i = $qNo; $i <=$qNoPerPage * $qPageNo; $i++)
+	        		for ($i = $qNo; $i <=$qNoPerPage/2 * $qPageNo; $i++)
 					{
-						echo "<br />";
-						echo $questions[$i];
+						
+						echo "<tr><td>" . "" . $questions[$i] . "</td>";
 						$qNo++;
+						
+						echo "<td>" . "" . $questions[$i + $qNoPerPage/2] . "</td></tr>";
+						$qNo++;
+						
+						/*echo "<br />";
+						echo $questions[$i];*/
+
 					}
+					
+					echo "</table>";
 					
 					$qPageNo++;
 					
@@ -107,12 +127,22 @@
         		  
         		<?php
 
-	        		for ($i = $qNo; $i <=$qNoPerPage * $qPageNo; $i++)
+        			echo "<table>";
+        		
+	        		for ($i = $qNo; $i <=$qNoPerPage/2 * $qPageNo; $i++)
 					{
-						echo "<br />";
-						echo $questions[$i];
+						
+						echo "<tr><td>" . "" . $questions[$i] . "</td>";
 						$qNo++;
+						
+						echo "<td>" . "" . $questions[$i + $qNoPerPage/2] . "</td></tr>";
+						$qNo++;
+						/*echo "<br />";
+						echo $questions[$i];*/
+						
 					} 
+					
+					echo "</table>";
 					
 				?>
    <!--      		    

@@ -23,6 +23,12 @@ h2, h4
 	float: left;
 }
 
+td
+{
+	/*border-spacing: 0px;*/
+	height: 100px;
+	
+}
 #lessionNumberSpan1
 {
 	float: left;
