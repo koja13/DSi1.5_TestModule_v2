@@ -36,7 +36,12 @@ h2
 
 img
 {
-	float: right;
+	float: center;
+}
+
+table
+{
+	margin: auto;
 }
 
 #nextButtonSpan, #finishButtonSpan
@@ -185,6 +190,8 @@ nav a.focus {
 	height: 90px;
 	margin: auto;
 	margin-bottom:5px;
+	margin-left:15px;
+	margin-right:15px;
 	background: white;
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0,0,0, .4); 

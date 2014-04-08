@@ -70,7 +70,7 @@
         			
 					echo "<table>";
 				
-	        		for ($i = 1; $i <=$qNoPerPage/2 * $qPageNo; $i++)
+	        		for ($i = 1; $i <=($qNoPerPage/2) * $qPageNo; $i++)
 					{
 						echo "<tr><td>" . "" . $questions[$i] . "</td>";
 						$qNo++;
@@ -98,7 +98,7 @@
         		
         		echo "<table>";
 					
-	        		for ($i = $qNo; $i <=$qNoPerPage/2 * $qPageNo; $i++)
+	        		for ($i = $qNo; $i <=($qNoPerPage/2) * $qPageNo; $i++)
 					{
 						
 						echo "<tr><td>" . "" . $questions[$i] . "</td>";
@@ -129,7 +129,7 @@
 
         			echo "<table>";
         		
-	        		for ($i = $qNo; $i <=$qNoPerPage/2 * $qPageNo; $i++)
+	        		for ($i = $qNo; $i <=($qNoPerPage/2) * $qPageNo; $i++)
 					{
 						
 						echo "<tr><td>" . "" . $questions[$i] . "</td>";
