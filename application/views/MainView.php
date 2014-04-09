@@ -37,7 +37,33 @@
         		
         $qNo=1;
         $qNoPerPage = 6;
-        $qPageNo = 1;
+       	$qPageNo = 1;
+        
+      /*  function showQuestions($qNo, $qNoPerPage, $qPageNo, $questions)
+        {
+  	
+        	global $qNo;
+        	global $qNoPerPage;
+        	global $qPageNo;
+        	
+        	echo "<table>";
+        		
+        	$counterValue = $qNoPerPage * $qPageNo - $qNoPerPage/2;
+        
+        	for ($i = 1; $i <=$counterValue; $i++)
+        	{
+	        	echo "<tr><td>" . "" . $questions[$i] . "</td>";
+	        	
+	        	$qNo++;
+	        		
+	        	echo "<td>" . "" . $questions[$i + $qNoPerPage/2] . "</td></tr>";
+	        	$qNo++;
+        	 }
+        
+        	echo "</table>";
+        
+        	$qPageNo++;
+        }*/
         			
     ?>
     
@@ -64,13 +90,19 @@
             
         	<div id="fragment-3" class="ui-tabs-panel ui-tabs-hide">
         		<div id="lessionDiv3" class="lessionDiv"></div>
+        		<div id="nextPrevDiv1" class="nextPrevDiv"></div>
         		<div id="quizDiv1" class="quizDiv">
         		
 				<?php
-        			
+
+				//showQuestions($qNo, $qNoPerPage, $qPageNo, $questions);
+				
+				
 					echo "<table>";
 				
-	        		for ($i = 1; $i <=($qNoPerPage/2) * $qPageNo; $i++)
+					$counterValue = $qNoPerPage * $qPageNo - $qNoPerPage/2;
+					
+	        		for ($i = 1; $i <=$counterValue; $i++)
 					{
 						echo "<tr><td>" . "" . $questions[$i] . "</td>";
 						$qNo++;
@@ -78,8 +110,7 @@
 						echo "<td>" . "" . $questions[$i + $qNoPerPage/2] . "</td></tr>";
 						$qNo++;
 						
-						/*echo "<br />";
-						echo $questions[$i];*/
+						
 					} 
 					
 					echo "</table>";
@@ -95,10 +126,13 @@
         		<div id="quizDiv2" class="quizDiv">
         		
         		<?php
+        		//showQuestions($qNo, $qNoPerPage, $qPageNo, $questions);
         		
         		echo "<table>";
+        		
+        			$counterValue = $qNoPerPage * $qPageNo - $qNoPerPage/2;
 					
-	        		for ($i = $qNo; $i <=($qNoPerPage/2) * $qPageNo; $i++)
+	        		for ($i = $qNo; $i <=$counterValue; $i++)
 					{
 						
 						echo "<tr><td>" . "" . $questions[$i] . "</td>";
@@ -107,8 +141,7 @@
 						echo "<td>" . "" . $questions[$i + $qNoPerPage/2] . "</td></tr>";
 						$qNo++;
 						
-						/*echo "<br />";
-						echo $questions[$i];*/
+					
 
 					}
 					
@@ -126,10 +159,13 @@
         		  
         		  
         		<?php
+        		//showQuestions($qNo, $qNoPerPage, $qPageNo, $questions);
 
         			echo "<table>";
         		
-	        		for ($i = $qNo; $i <=($qNoPerPage/2) * $qPageNo; $i++)
+        			$counterValue = $qNoPerPage * $qPageNo - $qNoPerPage/2;
+        			
+	        		for ($i = $qNo; $i <=$counterValue; $i++)
 					{
 						
 						echo "<tr><td>" . "" . $questions[$i] . "</td>";
@@ -137,8 +173,6 @@
 						
 						echo "<td>" . "" . $questions[$i + $qNoPerPage/2] . "</td></tr>";
 						$qNo++;
-						/*echo "<br />";
-						echo $questions[$i];*/
 						
 					} 
 					

@@ -70,24 +70,46 @@ td
 #countDiv
 {
 
-	position: fixed;
-	/*margin:0px auto;*/
+	/*position: fixed;
 	bottom: -5px; 
-	/*width:100%;*/
 	left: 120px;
 	right: 120px;
-	text-align: center;
+	text-align: center;*/
+	
+	/*margin:0px auto;*/
+	/*width:100%;*/
+	
+	
+	bottom: 0;
+    height: 30px; /* forces #testmenu to the bottom */
+    margin: 0 auto;
+    position: fixed;
+    width: 130px;
+	left: 43.5%;
+	right: 45%;
+	
 }
-
+#nexPrevDiv1
+{
+	width: 300px;
+	bottom: 2.5px;
+    height: 30px; /* forces #testmenu to the bottom */
+    margin: 0 auto;
+    position: fixed;
+    width: 300px;
+	left: 30.5%;
+	right: 30%;
+	
+}
 .lessionDiv
 {
-	height:50%;
+	height:65%;
 	overflow-y: auto;
 	overflow-x: hidden;
 }
 .quizDiv
 {
-	height:50%;
+	height:35%;
 	overflow-y: auto;
 	overflow-x: hidden;
 }

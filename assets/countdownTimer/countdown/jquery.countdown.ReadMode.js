@@ -38,7 +38,8 @@
 				left = 0;
 				
 				sendUserActionsLessions(null, "reading_time_is_up", null);
-				window.location = config.site_url + "/UserController/startQuiz";
+				//window.location = config.site_url + "/UserController/startQuiz";
+				finishQuiz();
 			}
 			
 			// Number of days left

@@ -6,6 +6,7 @@ $(function(){
 	//var ts = (new Date()).getTime() + (10*1000 + 1000);
 	var ts = (new Date()).getTime() + (30*60*1000 + 1000);
 	
+	
 	$('#countdown').countdown(
 	{
 	// prosledjuje se samo timestamp, dokle se odbrojava

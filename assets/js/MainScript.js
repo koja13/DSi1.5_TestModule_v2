@@ -135,12 +135,14 @@
 				{
 					next = i + 2;
 					$(this).append("<a href='#' class='next-tab mover' rel='" + next + "'>Next Page &#187;</a>");
+
 				}
 				  
 				if (i != 0)
 				{
 					prev = i;
 					$(this).append("<a href='#' class='prev-tab mover' rel='" + prev + "'>&#171; Prev Page</a>");
+
 				}
 				
 				if (i == totalSize) 
