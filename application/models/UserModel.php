@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class UserModel extends CI_Model {
+class usermodel extends CI_Model {
     
     public function __construct()
     {
@@ -8,7 +8,7 @@ class UserModel extends CI_Model {
     
     // ================================ login($username, $password) ================================
     //
-    // poziva je fja login() === UserController ===
+    // poziva je fja login() === usercontroller ===
     //
     // Ulazni parametri: $username     - korisnicko ime
     //                   $password     - sifra		 
@@ -51,7 +51,7 @@ class UserModel extends CI_Model {
     
     // ================================ addUserDSI() ================================
     //
-    // poziva je fja registration() === UserController ===
+    // poziva je fja registration() === usercontroller ===
     //
     // fja dodaje novog korisnika u bazu podataka (tip naloga je d, kao DSI, ovo je direktna registracija)
     //
@@ -70,7 +70,7 @@ class UserModel extends CI_Model {
 
 	// ================================ registerFBuser() ================================
 	//
-	// poziva je fja registration() === UserController ===
+	// poziva je fja registration() === usercontroller ===
 	//
 	// fja korisniku koji se vec prijavio preko fb naloga menja podatke u bazi, stavlja da je tip naloga d
 	// (kao DSi) i dodaje mu korisnicko ime i sifru unete prilikom registracije
@@ -93,7 +93,7 @@ class UserModel extends CI_Model {
 	
 	// ================================ addUserFB($name, $username, $email, $account_type) ================================
 	//
-	// poziva je fja getUserDataFB() === UserController ===
+	// poziva je fja getUserDataFB() === usercontroller ===
 	//
 	// Ulazni parametri: $name		   - ime i prezime fb korisnika
 	//					 $username     - korisnicko ime
@@ -106,7 +106,7 @@ class UserModel extends CI_Model {
 	//
 	
 
-	public function addUserFB($name, $username, $email, $use_dsi ,$account_type)
+	public function addUserFB($name, $email, $use_dsi ,$account_type)
 	{
 		//$this->db->where("username",$username);
 		$this->db->where("email",$email);
@@ -120,7 +120,7 @@ class UserModel extends CI_Model {
 				//$account_type = $rows->account_type;
 				$newdata = array(
 						'user_id' 		=> $rows->id,
-						'user_name' 	=> $rows->username,
+						//'user_name' 	=> $rows->username,
 						'user_email'    => $rows->email,
 						'use_dsi'       => $rows->use_dsi,
 						'account_type'  => $rows->account_type,
@@ -136,7 +136,7 @@ class UserModel extends CI_Model {
 			// upisivanje podataka o korisniku preuzetih sa fb
 			$data=array(
 					//'name'=> $name,
-					'username'=> $username,
+				//	'username'=> $username,
 					'email'=> $email,
                     'use_dsi' => $use_dsi,
 					'account_type' => $account_type
@@ -155,7 +155,7 @@ class UserModel extends CI_Model {
 					//$account_type = $rows->account_type;
 					$newdata = array(
 							'user_id' 		=> $rows->id,
-							'user_name' 	=> $rows->username,
+					//		'user_name' 	=> $rows->username,
 							'user_email'    => $rows->email,
 							'use_dsi'    => $rows->use_dsi,
 							'account_type' => $rows->account_type,
@@ -171,7 +171,7 @@ class UserModel extends CI_Model {
 	
 	// ================================ getQuestions() ================================
 	//
-	// poziva je fja quiz() === UserController ===
+	// poziva je fja quiz() === usercontroller ===
 	//
 	// fja cita iz baze pitanja za kviz a zatim ih stampa ka klijentu ($data niz) u formi div-pitanje
 	// prva tri pitanja su vidljiva (ostatak pitanja je sakriven uspomoc display:none)
@@ -221,7 +221,7 @@ class UserModel extends CI_Model {
 	
 	// ================================ saveQuizResults($userAnswers) ================================
 	//
-	// poziva je fja getQuizResults() === UserController ===
+	// poziva je fja getQuizResults() === usercontroller ===
 	//
 	// Ulazni parametri: $userAnswers	  - niz stringova sa odgovorima na pitanaj u kvizu
 	//
@@ -246,7 +246,7 @@ class UserModel extends CI_Model {
 	
 	// ======== saveUserActions($currentLessionNumber, $subject, $object, $currentDateTime) ========
 	//
-	// poziva je fja getUserActions() === UserController ===
+	// poziva je fja getUserActions() === usercontroller ===
 	//
 	// Ulazni parametri: $currentLessionNumber	  	- broj lekcije na kojoj se desilo prevljacenje reci na rec
 	//					 $subject     				- objekat
@@ -277,7 +277,7 @@ class UserModel extends CI_Model {
 	
 	// ======== saveUserActionsLessions($currentLessionNumber, $action, $next_prev_lession_number,$currentDateTime) ========
 	//
-	// pozivaju je fje getUserActionsLessions() i logout() === UserController ===
+	// pozivaju je fje getUserActionsLessions() i logout() === usercontroller ===
 	//
 	// Ulazni parametri: $currentLessionNumber	  	- broj lekcije na kojoj se desilo prevljacenje reci na rec
 	//					 $action     				- akcija koja je obavljena
@@ -305,7 +305,7 @@ class UserModel extends CI_Model {
 	
 	// ================================ getResults() ================================
 	//
-	// poziva je fja QuizResultPage() === UserController ===
+	// poziva je fja QuizResultPage() === usercontroller ===
 	//
 	// fja cita iz baze korisnikove odgovore na pitanja u kvizu a zatim ih stampa ka klijentu ($data niz) u formi div-pitanje
 	// 

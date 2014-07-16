@@ -18,7 +18,7 @@
 	</div>
 </div>
 
-<nav> <?php /*echo anchor('UserController/startQuiz', 'Start test', array('id'=>'startTest') ) . " | "; */if($this->session->userdata('account_type') =="f") {echo anchor('/UserController/registerFBUser', 'Register') . " | "; } echo anchor('UserController/logout', 'Logout', array('class'=>'focus') ); ?> </nav>
+<nav> <?php /*echo anchor('usercontroller/startQuiz', 'Start test', array('id'=>'startTest') ) . " | "; */if($this->session->userdata('account_type') =="f") {echo anchor('/usercontroller/registerFBUser', 'Register') ;} /*. " | "; } echo anchor('usercontroller/logout', 'Logout', array('class'=>'focus') ); */?> </nav>
 </div>
 
 <!------------------------- mainDiv, centralni div u koji se ucitava tekst ------------------------->

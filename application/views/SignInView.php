@@ -1,12 +1,24 @@
 <div id="fb-root"></div>
 
+<script>
+
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=128303734043111&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+</script>
+
 <!------------------------- ucitavanje fbLoginScript javascript fajla, js fajl za logovanje korisnika na sistem pomocu fb naloga ------------------------->
-<script src="<?php echo base_url('assets/js/fbLoginScript.js')?>"> </script>
+<script src="<?php echo base_url('assets/js/fbLoginScript.js')?>"></script>
 
 <div id="content">
 
 <div id='navigationDiv'>
-<nav><a href="#" class="focus">Log In</a> | <a href="<?php echo site_url("/UserController/register"); ?>">Register</a></nav>
+<nav><a href="#" class="focus">Log In</a> | <a href="<?php echo site_url("/usercontroller/register"); ?>">Register</a></nav>
 </div>
 	<div class="signup_wrap">
 	
@@ -19,7 +31,7 @@
 		
 			<?php $attributes = array('class' => 'signin');
 				
-			echo form_open("UserController/login", $attributes); 
+			echo form_open("usercontroller/login", $attributes); 
 			
 			?>
 			
@@ -39,9 +51,11 @@
 		        <input type="submit" class="button" value="Sign in" />
 		        
 		        <br /><br /><h4>-- or --</h4><br />
-		        
-		        <div class="fb-login-button"  perms="email" scope="publish_stream" size="large" data-show-faces="false" data-width="200" data-max-rows="1">Login with Facebook</div>
-		        
+                
+                <div class="fb-login-button" scope="public_profile, email" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false" onlogin="checkLoginState();">Log in using Facebook</div>
+                <div id="status"></div>
+
+
 		    <?php echo form_close(); ?>
 		    
 		</div><!--<div class="signin_form">-->

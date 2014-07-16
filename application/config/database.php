@@ -49,7 +49,7 @@ $active_group = 'default';
 $active_record = TRUE;
 
 ////////////////////////// U LOKALU ////////////////////////////////
-
+/*
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
 $db['default']['password'] = '';
@@ -65,13 +65,13 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
-
+*/
 ////////////////////////////////////////////////////////////////////
 
 
 
 ////////////////////////// ZA HOSTING //////////////////////////////
-/*
+
 $db['default']['hostname'] = 'mysql.priv.vtkom.com';
 $db['default']['username'] = 'teacher';
 $db['default']['password'] = 'course27';
@@ -87,7 +87,7 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
-*/
+
 ////////////////////////////////////////////////////////////////////
 
 

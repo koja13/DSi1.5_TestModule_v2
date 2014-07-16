@@ -1,6 +1,6 @@
 <?php
 define("RDFAPI_INCLUDE_DIR", "././rdfapi-php/api/");
-include(RDFAPI_INCLUDE_DIR . "RDFAPI.php");
+include(RDFAPI_INCLUDE_DIR . "RdfAPI.php");
 
 class RdfController extends CI_Controller {
 

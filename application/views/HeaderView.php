@@ -46,7 +46,7 @@
 
 	
 	
-<title><?php echo (isset($title)) ? $title : "DSi2.0" ?> </title>
+<title><?php echo (isset($title)) ? $title : "DSi1.5" ?> </title>
 
 </head>
 <body class="bodyClass">

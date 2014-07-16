@@ -16,8 +16,7 @@
 		
 		// promenljiva koja cuva ime rdf modela, inicijalno je prazan string
 		var rdfGraphName = "";
-		
-		
+
 		
 		// ==========================  KOD DODAT ZA TEST MODUL -- pocetak ================================
 		
@@ -43,11 +42,11 @@
 		// niz u kome ce se cuvati odgovori koje korisnik odabere
 		var userAnswers = new Array();
 		
-		var qNumber = 9;
+		var qNumber = 18;
 
 		// bool promenljive
 		var resultsSent = false;
-		userFinishedQuiz = false;
+		userFinishedLearningAndQuiz = false;
 
 		// FUNKCIJE
 		
@@ -243,11 +242,31 @@
 
 		});
 		
+        // =============================== removejscssfile(filename, filetype) ==============================
+		//
+		// funkcija koja uklanja js ili css fajl sa zadatim URL-om sa strane na kojoj je pozvana
+		// poziva je fja finishQuiz nakon slanja rezultata kviza == MainScript.js ==
+		// 
+      /*  function removejscssfile(filename, filetype)
+        {
+             var targetelement=(filetype=="js")? "script" : (filetype=="css")? "link" : "none" //determine element type to create nodelist from
+             
+             var targetattr=(filetype=="js")? "src" : (filetype=="css")? "href" : "none" //determine corresponding attribute to test for
+             
+             var allsuspects=document.getElementsByTagName(targetelement)
+             for (var i=allsuspects.length; i>=0; i--)
+             { //search backwards within nodelist for matching elements to remove
+                if(allsuspects[i] && allsuspects[i].getAttribute(targetattr)!=null && allsuspects[i].getAttribute(targetattr).indexOf(filename)!=-1)
+                        allsuspects[i].parentNode.removeChild(allsuspects[i]) //remove element by calling parentNode.removeChild()
+             }
+        }*/
+
+        
 		
 		// =============================== finishQuiz() ==============================
 		//
 		// funkcija koja cuva korisnikove odgovore na pitanja u niz, a zatim ih prosledjuje serveru
-		// poziva je event handler za klik na dugme == finishButton, QuizView ==
+		// poziva je event handler za klik na dugme == finishButton, MainView ==
 		// 
 		function finishQuiz()
 		{
@@ -279,11 +298,14 @@
 				// setovanje bool promenljivih
 				
 				// korisnik je zavrsio kviz
-				userFinishedQuiz = true;
+				userFinishedLearningAndQuiz = true;
 				
 				// rezultati su poslati
 				resultsSent = true;
 
+                //uklanja js fajlove vezane za tajmer nakon zavrsetka ucenja/kviza
+               // removejscssfile(config.base_url + "assets/countdownTimer/countdown/jquery.countdown.ReadMode.js", "js");
+              //  removejscssfile(config.base_url + "assets/countdownTimer/js/ReadModeCountdownScript.js", "js")  
 			}
 		}
 		
@@ -299,7 +321,7 @@
 				  // u pitanju je post zahtev
 				  type: "POST",
 				  // link ka kome se upucuje zahtev, getQuizResults predstavlja metod na serveru koji ce da odgovori na zahtev
-				  url: config.site_url + "/UserController/saveQuizResults",
+				  url: config.site_url + "/usercontroller/saveQuizResults",
 				  data: {	
 				  // salju se odgovori na pitanja i vreme kada je zavrsen kviz
 					  		userAnswers: userAnswers,
@@ -344,7 +366,7 @@
 		{
 			$.ajax({
 				  type: "POST",
-				  url: config.site_url + "/UserController/getUserActions",
+				  url: config.site_url + "/usercontroller/getUserActions",
 				  data: {	
 							  currentLessionNumber: currentLessionNumber,
 							  subject: subject,
@@ -371,7 +393,7 @@
 		{
 			$.ajax({
 				  type: "POST",
-				  url: config.site_url + "/UserController/getUserActionsLessions",
+				  url: config.site_url + "/usercontroller/getUserActionsLessions",
 				  data: {	
 							  currentLessionNumber: currentLessionNumber,
 							  action: action,
@@ -647,21 +669,26 @@
 			}).done(function( response ) {
 
 				var regex = new RegExp(response, 'gi');
+               
+               for(var i=1;i<=7;i++)
+				{ 
+    				findAndReplaceDOMText(
+    					regex,
+    					$("#lessionDiv" + i).get(0),
+    					function(fill, matchIndex) {
+    					var el = document.createElement('span');
+    					el.setAttribute("class", "dragdrop");
+    					el.setAttribute("style", "color:grey");
+    					el.innerHTML = fill;
+    					return el;
+    					}
+    				);
+                   		// recima u tekstu se daje drag & drop funkcionalnost
+                        makeDraggableDroppable();
+                }
+                
 
-				findAndReplaceDOMText(
-					regex,
-					mainDiv,
-					function(fill, matchIndex) {
-					var el = document.createElement('span');
-					el.setAttribute("class", "dragdrop");
-					el.setAttribute("style", "color:grey");
-					el.innerHTML = fill;
-					return el;
-					}
-				);
 				
-				// recima u tekstu se daje drag & drop funkcionalnost
-				makeDraggableDroppable();
 				
 			});
 	}

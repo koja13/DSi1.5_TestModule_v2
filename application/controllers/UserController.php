@@ -1,16 +1,16 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class UserController extends CI_Controller{
+class usercontroller extends CI_Controller{
 	
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->library('session');
-		$this->load->model('UserModel');
+		$this->load->model('usermodel');
 	}
 	
 	// ================================ index() ================================
 	//
-	// poziva se pokretanjem UserController-a automatski
+	// poziva se pokretanjem usercontroller-a automatski
 	//
 	// ova fja automatski pokrece Sign In stranu
 	//
@@ -40,7 +40,7 @@ class UserController extends CI_Controller{
 		$email=$this->input->post('email_address');
 		$password=md5($this->input->post('pass'));
 	
-		$result=$this->UserModel->login($email,$password);
+		$result=$this->usermodel->login($email,$password);
 		if($result)
 		{
 			$this->welcome();
@@ -66,7 +66,7 @@ class UserController extends CI_Controller{
 	
 	// ================================ thanks() ================================
 	//
-	// poziva je fja registration() == UserController ==
+	// poziva je fja registration() == usercontroller ==
 	//
 	// ova fja nakon uspesne registracije otvara stranu na kojoj je korisniku ispisano da se uspesno registrovao
 	// i na kojoj moze da se prijavi na sistem
@@ -86,7 +86,7 @@ class UserController extends CI_Controller{
 	// poziva se u okviru forme za registrovanje na sistem, klikom na Submit dugme
 	//
 	// ova fja registruje korisnika na sistem (cuva podatke u bazi), prvo se izvrsi provera (form validation) za svako polje u okviru forme
-	// nakon toga ukoliko su ispravno uneseni podaci pozivaju se ---- fja addUserDSI() ili fja registerFBuser() --- == UserModel ==
+	// nakon toga ukoliko su ispravno uneseni podaci pozivaju se ---- fja addUserDSI() ili fja registerFBuser() --- == usermodel ==
 	// koje unose podatke u bazu a korisnik se onda preusmerava na stranu gde mu se daje do znanja da se uspesno registrovao, i da moze da se loguje
 	// 
 	public function registration()
@@ -115,14 +115,14 @@ class UserController extends CI_Controller{
 		  if($this->session->userdata('account_type') =="f")
           {
             // ako se registruje korisnik koji se vec logovao fb nalogom
-            $this->UserModel->registerFBuser();
+            $this->usermodel->registerFBuser();
 			$this->thanks();
             
           }
           else
           {
             // ako se korisnik registruje regularno
-			$this->UserModel->addUserDSI();
+			$this->usermodel->addUserDSI();
 			$this->thanks();
           }
 		}
@@ -130,7 +130,7 @@ class UserController extends CI_Controller{
 	
 	// ================================ register() ================================
 	//
-	// poziva je fja registration() == UserController ==
+	// poziva je fja registration() == usercontroller ==
 	//
 	// ova fja redirektuje na stranu za registrovanje, poziva se ukoliko podaci za registrovanje nisu ispravno uneseni u formu za registraciju
 	//
@@ -143,7 +143,7 @@ class UserController extends CI_Controller{
 		else{
 			$data['title']= 'Registration | DSi1.5';
 			$this->load->view('HeaderView',$data);
-			$this->load->view("RegistrationView.php", $data);
+			$this->load->view("RegistrationView", $data);
 			$this->load->view('FooterView',$data);
 		}
 	}
@@ -157,9 +157,9 @@ class UserController extends CI_Controller{
 	public function registerFBUser()
 	{
 		$data['title']= 'Registration | DSi1.5';
-		$this->load->view('header_view',$data);
-		$this->load->view("registration_view.php", $data);
-		$this->load->view('footer_view',$data);
+		$this->load->view('HeaderView',$data);
+		$this->load->view("RegistrationView", $data);
+		$this->load->view('FooterView',$data);
 	}
 	
 	// ================================ getUserDataFB() ================================
@@ -171,17 +171,20 @@ class UserController extends CI_Controller{
 	public function getUserDataFB()
 	{
 		$name = $_POST['name'];
-		$username = $_POST['username'];
+		//$username = $_POST['username'];
 		$email = $_POST['email'];
         $use_dsi = $_POST['use_dsi'];
 		$account_type = $_POST['account_type'];
+        
+        echo $name ." ". $email ." ". $use_dsi ." ". $account_type;
 		
-		$this->user_model->addUserFB($name, $username, $email, $use_dsi, $account_type);
+		//$this->user_model->addUserFB($name, $username, $email, $use_dsi, $account_type);
+        $this->usermodel->addUserFB($name, $email, $use_dsi, $account_type);
 	}
 	
 	// ================================ welcome() ================================
 	//
-	// pozivaju je fje index(), login() i register() == UserController ==
+	// pozivaju je fje index(), login() i register() == usercontroller ==
 	//
 	// ova fja otvara Welcome stranu (WelcomeView pogled) nakon uspesne prijave korisnika na sistem
 	//
@@ -203,7 +206,7 @@ class UserController extends CI_Controller{
 	{
 
 		
-		$data=$this->UserModel->getQuestions();
+		$data=$this->usermodel->getQuestions();
 		$data['title']= 'DSi1.5';
 		$this->load->view('HeaderView',$data);
 		$this->load->view('MainView.php', $data);
@@ -224,7 +227,7 @@ class UserController extends CI_Controller{
 		$object = $_POST['object'];
 		$currentDateTime = $_POST['currentDateTime'];
 		
-		$this->UserModel->saveUserActions($currentLessionNumber, $subject, $object, $currentDateTime);
+		$this->usermodel->saveUserActions($currentLessionNumber, $subject, $object, $currentDateTime);
 	}
 	
 	// ================================ getUserActionsLessions() ================================
@@ -241,7 +244,7 @@ class UserController extends CI_Controller{
 		$next_prev_lession_number = $_POST['next_prev_lession_number'];
 		$currentDateTime = $_POST['currentDateTime'];
 		
-		$this->UserModel->saveUserActionsLessions($currentLessionNumber, $action, $next_prev_lession_number, $currentDateTime);
+		$this->usermodel->saveUserActionsLessions($currentLessionNumber, $action, $next_prev_lession_number, $currentDateTime);
 	}
 	
 	// ================================ startQuiz() ================================
@@ -266,7 +269,7 @@ class UserController extends CI_Controller{
 	//
 	public function quiz()
 	{
-		$data=$this->UserModel->getQuestions();
+		$data=$this->usermodel->getQuestions();
 		
 		//echo $data["questions"];
 		//$data['title']= 'Quiz | DSi1.5';
@@ -279,14 +282,14 @@ class UserController extends CI_Controller{
 	//
 	// odgovor na ajax poziv fje sendQuizResults() == QuizView ==
 	//
-	// ova fja upisuje u bazu rezultate kviza, poziva fju saveQuizResults($userAnswers) za cuvanje podataka o rezultatima == UserModel ==
+	// ova fja upisuje u bazu rezultate kviza, poziva fju saveQuizResults($userAnswers) za cuvanje podataka o rezultatima == usermodel ==
 	// 
 	public function saveQuizResults()
 	{
 		$userAnswers = $_POST['userAnswers'];
 		$currentDateTime = $_POST['currentDateTime'];
-		$message = $this->UserModel->saveQuizResults($userAnswers);
-		//$this->UserModel->saveUserActionsLessions(null, "finish_quiz", null, $currentDateTime);
+		$message = $this->usermodel->saveQuizResults($userAnswers);
+		//$this->usermodel->saveUserActionsLessions(null, "finish_quiz", null, $currentDateTime);
 		
 		echo $message;
 	}
@@ -299,7 +302,7 @@ class UserController extends CI_Controller{
 	// 
 	public function QuizResultPage()
 	{
-		$data = $this->UserModel->getResults();
+		$data = $this->usermodel->getResults();
 		
 		$data['title'] = 'Quiz results | DSi1.5';
 		$this->load->view('HeaderQuizView',$data);
@@ -316,7 +319,7 @@ class UserController extends CI_Controller{
 	public function logout()
 	{
 		// upisivanje informacije o logout-u u bazu
-		$this->UserModel->saveUserActionsLessions(null, "logged_out", null, date('Y-m-d H:i:s'));
+		$this->usermodel->saveUserActionsLessions(null, "logged_out", null, date('Y-m-d H:i:s'));
 		
 		$newdata = array(
 		'user_id'   =>'',

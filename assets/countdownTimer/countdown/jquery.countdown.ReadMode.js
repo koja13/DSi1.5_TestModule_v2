@@ -37,9 +37,11 @@
 			{
 				left = 0;
 				
-				sendUserActionsLessions(null, "reading_time_is_up", null);
-				//window.location = config.site_url + "/UserController/startQuiz";
-				finishQuiz();
+				sendUserActionsLessions(null, "time_is_up", null);
+                timeIsUp = true;
+				//window.location = config.site_url + "/usercontroller/startQuiz";
+			//	finishQuiz();
+                //break;
 			}
 			
 			// Number of days left
@@ -65,9 +67,27 @@
 			options.callback(d, h, m, s);
 			
 			// Scheduling another call of this function in 1s
+            
+            if(timeIsUp==false)
+			{
+				if(userFinishedLearningAndQuiz == false)
+				{
+					setTimeout(tick, 1000);
+				}
+				else
+				{
+					finishQuiz();
+				}
+			}
+			else
+			{
+				finishQuiz();
+			}
+            
+            
 			//if(left!=0)
 			//{
-				setTimeout(tick, 1000);
+			////////////	setTimeout(tick, 1000);
 			//}
 			
 		})();
